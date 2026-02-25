@@ -1,0 +1,4 @@
+project name : "Think-Board-Note-App"
+username : "programmingrandy_db_user"
+password : "ZkNbNMWrzcCrVsb7"
+project Link : "mongodb+srv://programmingrandy_db_user:ZkNbNMWrzcCrVsb7@cluster0.a2yuycc.mongodb.net/?appName=Cluster0"

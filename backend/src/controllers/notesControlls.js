@@ -10,21 +10,24 @@ export const getAllNotes = async (req, res) => {
   }
 };
 
-export const getNoteByID = async () => {
+export const getNoteByID = async (req, res) => {
   try {
     const note = await Note.findById(req.params.id);
 
     if (!note) return res.status(404).json({ message: "Note not found" });
 
     res.status(200).json(note);
-  } catch (error) {}
+  } catch (error) {
+    console.log("Error in getNoteByID Function", error);
+    res.status(500).json({ message: "Internal Server Error " });
+  }
 };
 
-export const createNote = async () => {
+export const createNote = async (req, res) => {
   try {
     const { title, content } = req.body;
     const newNote = new Note({
-      body,
+      title,
       content,
     });
 
@@ -35,7 +38,8 @@ export const createNote = async () => {
     res.status(500).json({ message: "Internal Server Error " });
   }
 };
-export const updateNote = async () => {
+
+export const updateNote = async (req, res) => {
   try {
     const { title, content } = req.body;
     const updatedNote = await Note.findByIdAndUpdate(
@@ -44,25 +48,26 @@ export const updateNote = async () => {
         title,
         content,
       },
-      { new: true },
+      { returnDocument: "after" },
     );
 
     if (!updatedNote)
       return res.status(404).json({ message: "Note not found" });
 
-    res.status(200).json(updateNote);
+    res.status(200).json(updatedNote);
   } catch (error) {
     console.log("Error in updateNote Function", error);
     res.status(500).json({ message: "Internal Server Error " });
   }
 };
+
 export const deleteNote = async (req, res) => {
   try {
     const deletedNote = await Note.findByIdAndDelete(req.params.id);
     if (!deletedNote)
-      return res.status(404).json({ message: "Note not found" });
+      return res.status(200).json({ message: "Note not found" });
 
-    res.status(404).json({ message: "Note Delete Successfully" });
+    res.status(200).json({ message: "Note Delete Successfully" });
   } catch (error) {
     console.log("Error in DeleteNote Function", error);
     res.status(500).json({ message: "Internal Server Error " });

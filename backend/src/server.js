@@ -12,7 +12,7 @@ server.use("/api/notes", noteRouter);
 const PORT = process.env.PORT || 5001;
 
 connectDB().then(() => {
-  server.listen(5001, () => {
+  server.listen(PORT, () => {
     console.log("Server Running on Port ", PORT);
   });
 });

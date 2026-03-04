@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import toast from "react-hot-toast";
 import NoteCard from "../components/NoteCard";
 import api from "../lib/axios.js";
@@ -35,7 +34,9 @@ function NotesComponent() {
         {notes.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {notes.map((note) => {
-              return <NoteCard note={note} key={note._id} />;
+              return (
+                <NoteCard note={note} key={note._id} setNotes={setNotes} />
+              );
             })}
           </div>
         )}

@@ -4,8 +4,15 @@ dotenv.config();
 import express from "express";
 import noteRouter from "./routes/notesRouter.js";
 import { connectDB } from "./config/db.js";
+import cors from "cors";
 
 const server = express();
+
+server.use(
+  cors({
+    origin: "http://localhost:5173",
+  }),
+);
 server.use(express.json());
 server.use("/api/notes", noteRouter);
 

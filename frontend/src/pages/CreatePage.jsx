@@ -29,46 +29,49 @@ const CreatePage = () => {
     }
   };
   return (
-    <div className="min-h-screen">
-      <div className="container max-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto">
-          <Link to={"/"}>Back to home</Link>
-
-          <div className="card bg-base-100">
-            <div className="card-body">
-              <h2>Create New Note</h2>
-
-              <form onSubmit={handelsubmit}>
-                {/* input */}
-                <div>
-                  <label htmlFor="">Title</label>
-                  <input
-                    type="text"
-                    placeholder="Enter Title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                </div>
-                {/* text area */}
-                <div>
-                  <label htmlFor="">Content</label>
-                  <textarea
-                    type="text"
-                    placeholder="Write Your Note Here"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                  />
-                </div>
-                {/* button */}
-                <div>
-                  <button type="submit">
-                    {loading ? "Creating..." : "Create Note"}
-                  </button>
-                </div>
-              </form>
-            </div>
+    <div className="min-h-screen flex flex-col p-7">
+      <div>
+        <h1 className="text-[40px] font-extrabold mb-5 p-5 ">
+          Create New Note
+        </h1>
+      </div>
+      {/* container */}
+      <div className="min-w-115 mx-auto relative  py-5">
+        {/* card section */}
+        <form onSubmit={handelsubmit} className="flex flex-col gap-5">
+          {/* input */}
+          <div className="flex flex-col gap-1">
+            <label className="text-[30px] font-bold ">Title</label>
+            <input
+              type="text"
+              className="bg-gray-200 py-2 px-5 rounded-full "
+              placeholder="Enter Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </div>
-        </div>
+          {/* text area */}
+          <div className="flex flex-col gap-1">
+            <label className="text-[30px] font-bold ">Content</label>
+            <textarea
+              type="text"
+              rows={5}
+              className="bg-gray-200 py-2 px-5 rounded-2xl "
+              placeholder="Write Your Note Here"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+          </div>
+          {/* button */}
+          <div>
+            <button
+              type="submit"
+              className="mt-2 py-2 px-5 bg-black text-white rounded-full font-bold mr-5 hover:bg-gray-100 hover:text-black duration-300 hover:-translate-y-2 hover:shadow-[1px_1px_3px_black]"
+            >
+              {loading ? "Creating..." : "Create Note"}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

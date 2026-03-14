@@ -18,8 +18,14 @@ const App = () => {
           path="/"
           element={<HomePage setCurrentStatus={setCurrentStatus} />}
         />
-        <Route path="/create" element={<CreatePage />} />
-        <Route path="/notes/:id" element={<NoteDetailPage />} />
+        <Route
+          path="/create"
+          element={<CreatePage setCurrentStatus={setCurrentStatus} />}
+        />
+        <Route
+          path="/notes/:id"
+          element={<NoteDetailPage setCurrentStatus={setCurrentStatus} />}
+        />
       </Routes>
     </div>
   );

@@ -25,9 +25,12 @@ export const getNoteByID = async (req, res) => {
 
 export const createNote = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title, content, dueDate, category, priority } = req.body;
     const newNote = new Note({
       title,
+      dueDate,
+      category,
+      priority,
       content,
     });
 
@@ -41,11 +44,14 @@ export const createNote = async (req, res) => {
 
 export const updateNote = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title, content, dueDate, category, priority } = req.body;
     const updatedNote = await Note.findByIdAndUpdate(
       req.params.id,
       {
         title,
+        dueDate,
+        category,
+        priority,
         content,
       },
       { returnDocument: "after" },

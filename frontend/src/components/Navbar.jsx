@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft, FaEarlybirds } from "react-icons/fa6";
 const Navbar = ({ currentStatus, setCurrentStatus }) => {
   return (
-    <div className="fixed w-[100%] bottom-2 left-1/2 -translate-x-1/2 p-2 rounded-full flex  items-center justify-between z-10">
+    <div className="fixed w-[100%] bottom-2 left-1/2 -translate-x-1/2 p-2 rounded-full flex  items-center justify-between z-10 ">
       {/* left side */}
       <Link
         to={"/"}

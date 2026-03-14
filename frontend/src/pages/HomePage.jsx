@@ -32,7 +32,7 @@ function NotesComponent({ setCurrentStatus }) {
         )}
 
         {notes.length > 0 && (
-          <div className="flex flex-col">
+          <div className="flex flex-col pb-20">
             <div>
               <h1 className="text-[40px] font-extrabold mb-5">My Notes</h1>
             </div>

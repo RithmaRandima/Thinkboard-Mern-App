@@ -10,6 +10,18 @@ const noteSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    dueDate: {
+      type: String,
+      required: true,
+    },
+    category: {
+      type: String,
+      required: true,
+    },
+    priority: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true },
 );
